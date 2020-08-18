@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/range-sum-query-immutable/submissions/
+// https://leetcode.com/problems/range-sum-query-immutable/
 /*Dynamic Programming, Prefix Sum*/
 
 class NumArray {
