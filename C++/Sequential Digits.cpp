@@ -7,6 +7,28 @@ in range [11,1e9]. Then just select the ones in the range
 [low,high] and then return them.
 */
 
+/*Linearly checking each elem in generated candidate sequential digits*/
+class Solution {
+public:
+    vector<int> sequentialDigits(int low, int high) {
+        vector <int> all, ans;
+        for (int i = 1; i <= 8; i++) {
+            int num = i;
+            for (int j = i + 1; j <= 9; j++) {
+                if (num * 10 + j <= 1000000000) {
+                    num = num * 10 + j;
+                    all.push_back(num);
+                }
+            }
+        }
+        sort(all.begin() , all.end());
+        for (auto x : all)
+            if (x >= low and x <= high)ans.push_back(x);
+        return ans;
+    }
+};
+
+/*Using lower_bound and upper_bound on low,high respectively*/
 class Solution {
 public:
     vector<int> sequentialDigits(int low, int high) {
