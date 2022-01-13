@@ -12,9 +12,8 @@ point, we can schedule that interval/process. So ans++ and also update the curr_
 class Solution {
 public:
     int findMinArrowShots(vector<vector<int>>& points) {
-        auto cmpr = [&](vector<int> a, vector <int> b) {
-            if (a[1] != b[1])return a[1] < b[1];
-            else return a[0] < b[0];
+        auto cmpr = [&](vector<int> &a, vector <int> &b) {
+            return a[1] < b[1];
         };
         sort(points.begin() , points.end() , cmpr);
         long ans = 0, curr_end = LONG_MIN;
@@ -27,3 +26,7 @@ public:
         return ans;
     }
 };
+
+/* C++ Users note that if you dont pass arguments to cmpr by reference
+   it may give TLE
+*/
